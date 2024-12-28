@@ -96,7 +96,7 @@ print(f"Batch of labels shape: {labels.shape}")  # Should be [batch_size]
 from torch.utils.data import Subset
 
 # Define the desired number of samples
-reduced_train_size = 500  # e.g., reduce to 10,000 samples
+reduced_train_size = 10000  # e.g., reduce to 10,000 samples
 
 
 # Create a subset of the training dataset
@@ -151,14 +151,14 @@ batch_size = 32
 
 
 # Parameters and main function call
-num_rounds = 10
+num_rounds = 100
 local_epochs = 1000
 lr = 1e-3
 accumulation_steps = 50
 early_stopping_patience = 100
 aggregation_method = "weighted_average"
 strong_convexity_param = 0.005
-max_clients_per_round = 2
+max_clients_per_round = 3
 
 
 
