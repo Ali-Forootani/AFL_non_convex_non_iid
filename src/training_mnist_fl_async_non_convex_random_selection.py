@@ -214,7 +214,7 @@ global_model = CNNMnistModel(
     input_channels=1,
     num_classes=10,
     hidden_channels=32,
-    num_layers=3,
+    num_layers=5,
     learning_rate=1e-3
 ).to(device)  # Move global model to GPU/CPU
 
