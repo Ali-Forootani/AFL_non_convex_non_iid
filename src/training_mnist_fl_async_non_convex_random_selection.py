@@ -158,7 +158,7 @@ accumulation_steps = 50
 early_stopping_patience = 100
 aggregation_method = "weighted_average"
 strong_convexity_param = 0.005
-max_clients_per_round = 3
+max_clients_per_round = 2
 
 
 
