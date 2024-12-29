@@ -14,5 +14,5 @@
 source /data/bio-eng-llm/virtual_envs/dnn_env/bin/activate
 
 # Execute the Python script
-python /data/bio-eng-llm/AFL_non_convex/training_mnist_fl_async_non_convex_random_selection.py
+python /data/bio-eng-llm/AFL_non_convex/src/training_mnist_fl_async_non_convex_random_selection.py
 
