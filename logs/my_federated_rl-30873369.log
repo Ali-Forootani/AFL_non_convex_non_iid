@@ -1,0 +1,45 @@
+Batch of images shape: torch.Size([64, 1, 28, 28])
+Batch of labels shape: torch.Size([64])
+Batch of images shape: torch.Size([64, 1, 28, 28])
+Batch of labels shape: torch.Size([64])
+CNNMnistModel(
+  (conv_layers): ModuleList(
+    (0): ConvLayer(
+      (conv): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (relu): ReLU()
+    )
+    (1-2): 2 x ConvLayer(
+      (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (relu): ReLU()
+    )
+  )
+  (pool): AdaptiveAvgPool2d(output_size=1)
+  (fc): Linear(in_features=32, out_features=10, bias=True)
+)
+Number of clients: 2
+First client's train loader size: 13
+Global test loader size: 313
+Federated Rounds:   0%|          | 0/100 [00:00<?, ?it/s]Federated Rounds:   0%|          | 0/100 [02:21<?, ?it/s]
+
+Starting federated learning round 1/100
+Selected clients: [1, 0]
+Round 1 - Maximum delay: 21.33s
+Server training loss after round 1: 29.5162
+Traceback (most recent call last):
+  File "/data/bio-eng-llm/AFL_non_convex/src/training_mnist_fl_async_non_convex_random_selection.py", line 288, in <module>
+    asyncio.run(main())
+  File "/gpfs1/data/bio-eng-llm/virtual_envs/dnn_env/lib/python3.10/site-packages/nest_asyncio.py", line 30, in run
+    return loop.run_until_complete(task)
+  File "/gpfs1/data/bio-eng-llm/virtual_envs/dnn_env/lib/python3.10/site-packages/nest_asyncio.py", line 98, in run_until_complete
+    return f.result()
+  File "/data/bio-eng-llm/miniconda3/envs/gnsindy_3/lib/python3.10/asyncio/futures.py", line 201, in result
+    raise self._exception.with_traceback(self._exception_tb)
+  File "/data/bio-eng-llm/miniconda3/envs/gnsindy_3/lib/python3.10/asyncio/tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "/data/bio-eng-llm/AFL_non_convex/src/training_mnist_fl_async_non_convex_random_selection.py", line 249, in main
+    ) = await federated_learning_with_mnist_cnn_4(
+  File "/gpfs1/data/bio-eng-llm/AFL_non_convex/src/mnist_trainer.py", line 516, in federated_learning_with_mnist_cnn_4
+    np.save(f"{save_dir}/client_{client_id}_training_losses.npy", np.array(client_loss, dtype=object))
+  File "/gpfs1/data/bio-eng-llm/virtual_envs/dnn_env/lib/python3.10/site-packages/numpy/lib/npyio.py", line 542, in save
+    file_ctx = open(file, "wb")
+FileNotFoundError: [Errno 2] No such file or directory: 'models//client_0_training_losses.npy'

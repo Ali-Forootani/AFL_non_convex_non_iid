@@ -1,0 +1,22 @@
+Batch of images shape: torch.Size([64, 1, 28, 28])
+Batch of labels shape: torch.Size([64])
+Batch of images shape: torch.Size([64, 1, 28, 28])
+Batch of labels shape: torch.Size([64])
+CNNMnistModel(
+  (conv_layers): ModuleList(
+    (0): ConvLayer(
+      (conv): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (relu): ReLU()
+    )
+    (1-2): 2 x ConvLayer(
+      (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (relu): ReLU()
+    )
+  )
+  (pool): AdaptiveAvgPool2d(output_size=1)
+  (fc): Linear(in_features=32, out_features=10, bias=True)
+)
+Number of clients: 2
+First client's train loader size: 750
+Global test loader size: 313
+Federated Rounds:   0%|          | 0/100 [00:00<?, ?it/s]Federated Rounds:   1%|          | 1/100 [2:24:09<237:51:59, 8649.69s/it]Federated Rounds:   2%|▏         | 2/100 [4:45:58<233:12:48, 8567.02s/it]Federated Rounds:   3%|▎         | 3/100 [5:55:44<176:55:20, 6566.19s/it]Federated Rounds:   4%|▍         | 4/100 [6:46:34<138:05:06, 5178.19s/it]Federated Rounds:   5%|▌         | 5/100 [9:03:33<165:35:00, 6274.75s/it]Federated Rounds:   6%|▌         | 6/100 [10:57:10<168:39:05, 6458.99s/it]Federated Rounds:   7%|▋         | 7/100 [11:29:54<128:53:51, 4989.58s/it]Federated Rounds:   8%|▊         | 8/100 [12:08:08<105:34:56, 4131.48s/it]Federated Rounds:   9%|▉         | 9/100 [12:54:12<93:37:26, 3703.80s/it] Federated Rounds:  10%|█         | 10/100 [13:21:07<76:28:27, 3058.97s/it]Federated Rounds:  11%|█         | 11/100 [14:16:55<77:49:01, 3147.66s/it]Federated Rounds:  12%|█▏        | 12/100 [15:26:46<84:41:53, 3464.93s/it]Federated Rounds:  13%|█▎        | 13/100 [16:27:56<85:14:23, 3527.16s/it]Federated Rounds:  14%|█▍        | 14/100 [17:37:47<89:03:04, 3727.73s/it]

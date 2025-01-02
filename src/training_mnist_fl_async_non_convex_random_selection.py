@@ -96,7 +96,7 @@ print(f"Batch of labels shape: {labels.shape}")  # Should be [batch_size]
 from torch.utils.data import Subset
 
 # Define the desired number of samples
-reduced_train_size = 60000  # e.g., reduce to 10,000 samples
+reduced_train_size = 1000  # e.g., reduce to 10,000 samples
 
 
 # Create a subset of the training dataset
@@ -151,15 +151,15 @@ batch_size = 32
 
 
 # Parameters and main function call
-num_rounds = 100
-local_epochs = 1000
+num_rounds = 30
+local_epochs = 10000
 lr = 1e-3
 accumulation_steps = 50
 early_stopping_patience = 100
 aggregation_method = "weighted_average"
 strong_convexity_param = 0.005
 max_clients_per_round = 2
-
+num_layers = 4
 
 
 mnist_data_preparation = MNISTDataPreparationFL(train_subset, test_dataset, num_clients, batch_size)
@@ -191,11 +191,11 @@ train_loaders, test_loaders = mnist_data_preparation.get_client_loaders(client_i
 for i, (train_loader, test_loader) in enumerate(zip(train_loaders, test_loaders)):
     # Initialize the CNNMnistModel for this client
     cnn_model = CNNMnistModel(
-        input_channels=1,  # MNIST images are grayscale
-        num_classes=10,    # MNIST has 10 classes (digits 0-9)
-        hidden_channels=32,
-        num_layers=5,
-        learning_rate=1e-3
+        input_channels= 1,  # MNIST images are grayscale
+        num_classes= 10,    # MNIST has 10 classes (digits 0-9)
+        hidden_channels= 32,
+        num_layers= num_layers,
+        learning_rate= 1e-3
     )
 
     # Set up the optimizer and scheduler for this client's model
@@ -211,11 +211,11 @@ for i, (train_loader, test_loader) in enumerate(zip(train_loaders, test_loaders)
 
 # Initialize the global model for federated learning
 global_model = CNNMnistModel(
-    input_channels=1,
-    num_classes=10,
-    hidden_channels=32,
-    num_layers=5,
-    learning_rate=1e-3
+    input_channels= 1,
+    num_classes= 10,
+    hidden_channels= 32,
+    num_layers= num_layers,
+    learning_rate= 1e-3
 ).to(device)  # Move global model to GPU/CPU
 
 
@@ -326,7 +326,7 @@ def plot_losses(save_dir, num_clients, num_rounds):
     plt.title("Training Losses per Client Across Rounds")
     plt.xlabel("Rounds")
     plt.ylabel("Loss")
-    plt.xscale('log')  # Logarithmic scale for x-axis
+    #plt.xscale('log')  # Logarithmic scale for x-axis
     plt.yscale('log')  # Logarithmic scale for y-axis
     plt.grid(True)
     plt.legend()
@@ -340,7 +340,7 @@ def plot_losses(save_dir, num_clients, num_rounds):
     plt.title("Server Model Training Loss Across Rounds")
     plt.xlabel("Rounds")
     plt.ylabel("Loss")
-    plt.xscale('log')  # Logarithmic scale for x-axis
+    #plt.xscale('log')  # Logarithmic scale for x-axis
     plt.yscale('log')  # Logarithmic scale for y-axis
     plt.grid(True)
     plt.legend()
