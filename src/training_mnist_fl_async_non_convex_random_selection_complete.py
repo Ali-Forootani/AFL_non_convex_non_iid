@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Updated Code for Federated Learning with MNIST
-"""
-
 import os
 import sys
 import numpy as np
@@ -53,15 +47,15 @@ reduced_train_size = 60000
 train_subset = Subset(train_dataset, range(reduced_train_size))
 
 # Federated Learning Setup
-num_clients = 10
+num_clients = 5
 batch_size = 32
-num_rounds = 100
-local_epochs = 100
+num_rounds = 30
+local_epochs = 10
 aggregation_method = "weighted_average"
 accumulation_steps = 50
 early_stopping_patience = 100
-max_clients_per_round = 5
-num_layers = 4
+max_clients_per_round = 3
+num_layers = 3
 
 # Prepare data for federated learning
 mnist_data_preparation = MNISTDataPreparationFL(train_subset, test_dataset, num_clients, batch_size)
@@ -116,20 +110,8 @@ async def main():
         save_dir=save_dir
     )
 
-    # Replace None with np.nan for saving
-    cleaned_training_losses = [
-        [np.nan if val is None else val for val in round_losses]
-        for round_losses in training_losses
-    ]
-
-    # Save results
-    np.save(os.path.join(save_dir, "training_losses.npy"), cleaned_training_losses)
-    np.save(os.path.join(save_dir, "server_training_losses.npy"), server_training_losses)
-    np.save(os.path.join(save_dir, "selected_clients_by_round.npy"), selected_clients_by_round)
-    np.save(os.path.join(save_dir, "execution_times_by_round.npy"), execution_times_by_round)
-
-    # Log key results
-    print(f"\nFederated learning completed. Results saved in {save_dir}")
+    # Log key results instead of saving as numpy arrays
+    print(f"\nFederated learning completed. Results:")
     print(f"Server training losses over rounds: {server_training_losses}")
     print(f"Execution times by round: {execution_times_by_round}")
     print(f"Selected clients by round: {selected_clients_by_round}")
@@ -137,30 +119,15 @@ async def main():
     # Save server model
     torch.save(server_model.state_dict(), os.path.join(save_dir, "server_model_final.pth"))
 
-    # Plot results
+    # Plot results directly
     plot_losses(save_dir, num_clients=len(clients_models), num_rounds=num_rounds)
     plot_selected_clients(selected_clients_by_round, os.path.join(save_dir, "selected_clients_by_round.png"))
     plot_execution_times(execution_times_by_round, os.path.join(save_dir, "execution_times_by_round.png"))
 
 # Function to plot losses
 def plot_losses(save_dir, num_clients, num_rounds):
-    training_losses = np.load(os.path.join(save_dir, "training_losses.npy"), allow_pickle=True)
-    server_training_losses = np.load(os.path.join(save_dir, "server_training_losses.npy"), allow_pickle=True)
-
-    # Plot client training losses
-    plt.figure(figsize=(10, 6))
-    for client_id, client_losses in enumerate(training_losses):
-        plt.plot(client_losses, label=f"Client {client_id + 1}", linewidth=2)
-    plt.title("Training Losses per Client Across Rounds")
-    plt.xlabel("Rounds")
-    plt.ylabel("Loss")
-    plt.yscale('log')  # Logarithmic scale for y-axis
-    plt.grid(True)
-    plt.legend()
-    plt.savefig(f"{save_dir}/client_training_losses_plot.png")
-    plt.show()
-
-    # Plot server training losses
+    # Load and plot server training losses
+    server_training_losses = np.load(f"{save_dir}/server_training_losses.npy", allow_pickle=True)
     plt.figure(figsize=(10, 6))
     plt.plot(server_training_losses, label="Server Model", linewidth=2, marker="o")
     plt.title("Server Model Training Loss Across Rounds")

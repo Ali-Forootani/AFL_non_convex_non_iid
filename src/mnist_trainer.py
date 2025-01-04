@@ -326,32 +326,32 @@ async def train_random_clients_with_classification_objective_delay_3(
 ######################################################
 ######################################################
 
+"""
+Train a client model with delay-aware learning rate adjustment.
 
+Args:
+    client_model (torch.nn.Module): Client's local model.
+    train_loader (DataLoader): Client's data loader.
+    device (torch.device): Device to run training on.
+    local_epochs (int): Number of local training epochs.
+    loss_fn (callable): Loss function for training.
+    gamma_0 (float): Base learning rate.
+    alpha (float): Scaling factor for delay.
+    delay_t (float): Delay parameter (dynamically adjusted).
+    accumulation_steps (int): Gradient accumulation steps.
+    early_stopping_patience (int): Early stopping patience.
 
+Returns:
+    state_dict: Trained model weights.
+    client_losses: List of per-epoch losses.
+    execution_time: Total execution time for client training.
+"""
+"""
 async def train_random_clients_with_classification_objective_delay_4(
     client_model, train_loader, device, local_epochs, loss_fn,
     gamma_0, alpha, delay_t, accumulation_steps, early_stopping_patience
 ):
-    """
-    Train a client model with delay-aware learning rate adjustment.
-
-    Args:
-        client_model (torch.nn.Module): Client's local model.
-        train_loader (DataLoader): Client's data loader.
-        device (torch.device): Device to run training on.
-        local_epochs (int): Number of local training epochs.
-        loss_fn (callable): Loss function for training.
-        gamma_0 (float): Base learning rate.
-        alpha (float): Scaling factor for delay.
-        delay_t (float): Delay parameter (dynamically adjusted).
-        accumulation_steps (int): Gradient accumulation steps.
-        early_stopping_patience (int): Early stopping patience.
-
-    Returns:
-        state_dict: Trained model weights.
-        client_losses: List of per-epoch losses.
-        execution_time: Total execution time for client training.
-    """
+    
     client_model = client_model.to(device)
     patience_counter = 0
     best_loss = float("inf")
@@ -409,6 +409,72 @@ async def train_random_clients_with_classification_objective_delay_4(
     delay_t = execution_time
 
     return client_model.state_dict(), client_losses, execution_time
+
+"""
+
+########################################################
+
+
+async def train_random_clients_with_classification_objective_delay_4(
+    client_model, train_loader, device, local_epochs, loss_fn,
+    gamma_0, alpha, delay_t, accumulation_steps, early_stopping_patience
+):
+    client_model = client_model.to(device)
+    patience_counter = 0
+    best_loss = float("inf")
+    client_losses = []
+
+    optimizer = torch.optim.Adam(client_model.parameters(), lr=gamma_0)
+    scaler = amp.GradScaler() if device.type == 'cuda' else None
+
+    start_time = time.time()
+    for epoch in range(local_epochs):
+        client_model.train()
+        epoch_loss = 0
+
+        gamma_t = gamma_0 / (torch.sqrt(torch.tensor(epoch + 1.0)) * (1 + alpha * delay_t))
+
+        for param_group in optimizer.param_groups:
+            param_group['lr'] = gamma_t.item()
+
+        for batch_idx, (inputs, targets) in enumerate(train_loader):
+            inputs, targets = inputs.to(device), targets.to(device)
+            optimizer.zero_grad()
+
+            # Use the updated AMP syntax
+            with torch.amp.autocast(device_type=device.type, enabled=(scaler is not None)):
+                outputs = client_model(inputs)
+                loss = loss_fn(outputs, targets)
+
+            if scaler:
+                scaler.scale(loss).backward()
+                if (batch_idx + 1) % accumulation_steps == 0:
+                    scaler.step(optimizer)
+                    scaler.update()
+            else:
+                loss.backward()
+                optimizer.step()
+
+            epoch_loss += loss.item()
+
+        avg_epoch_loss = epoch_loss / len(train_loader)
+        client_losses.append(avg_epoch_loss)
+
+        if avg_epoch_loss < best_loss:
+            best_loss = avg_epoch_loss
+            patience_counter = 0
+        else:
+            patience_counter += 1
+            if patience_counter >= early_stopping_patience:
+                break
+
+    execution_time = time.time() - start_time
+    return client_model.state_dict(), client_losses, execution_time
+
+
+
+
+
 
 
 
