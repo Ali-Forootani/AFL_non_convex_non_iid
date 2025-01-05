@@ -47,19 +47,20 @@ reduced_train_size = 60000
 train_subset = Subset(train_dataset, range(reduced_train_size))
 
 # Federated Learning Setup
-num_clients = 5
+num_clients = 1
 batch_size = 32
-num_rounds = 30
-local_epochs = 10
+num_rounds = 10
+local_epochs = 1
 aggregation_method = "weighted_average"
 accumulation_steps = 50
 early_stopping_patience = 100
-max_clients_per_round = 3
+max_clients_per_round = 1
+num_classes_per_client = 10
 num_layers = 3
 
 # Prepare data for federated learning
 mnist_data_preparation = MNISTDataPreparationFL(train_subset, test_dataset, num_clients, batch_size)
-client_indices = mnist_data_preparation.partition_data()
+client_indices = mnist_data_preparation.partition_data(non_iid=True, num_classes_per_client= num_classes_per_client)
 train_loaders, test_loaders = mnist_data_preparation.get_client_loaders(client_indices)
 
 # Initialize clients' models, optimizers, and schedulers
@@ -168,3 +169,60 @@ def plot_execution_times(execution_times, save_path):
 
 # Run the async main function
 asyncio.run(main())
+
+
+
+
+
+
+# Function to plot client training losses
+def plot_client_losses(client_loss_dir, num_clients):
+    plt.figure(figsize=(12, 8))
+    
+    for client_id in range(num_clients):
+        loss_file = os.path.join(client_loss_dir, f"client_{client_id}_training_losses.npy")
+        if os.path.exists(loss_file):
+            client_losses = np.load(loss_file, allow_pickle=True)
+            plt.plot(client_losses, label=f"Client {client_id}", marker="o", linewidth=1.5)
+        else:
+            print(f"Loss file for Client {client_id} not found.")
+    
+    plt.title("Client Training Losses Across Local Epochs")
+    plt.xlabel("Epochs")
+    plt.ylabel("Loss")
+    plt.yscale('log')  # Use a logarithmic scale for better visualization
+    plt.grid(True)
+    plt.legend()
+    plt.savefig(f"{client_loss_dir}/client_training_losses_plot.png")
+    plt.show()
+
+save_dir = "models/" 
+
+plot_client_losses(save_dir, num_clients)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

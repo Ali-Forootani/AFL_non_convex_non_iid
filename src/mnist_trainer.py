@@ -415,6 +415,8 @@ async def train_random_clients_with_classification_objective_delay_4(
 ########################################################
 
 
+""" AMP (Automatic Mixed Precision)
+
 async def train_random_clients_with_classification_objective_delay_4(
     client_model, train_loader, device, local_epochs, loss_fn,
     gamma_0, alpha, delay_t, accumulation_steps, early_stopping_patience
@@ -471,8 +473,59 @@ async def train_random_clients_with_classification_objective_delay_4(
     execution_time = time.time() - start_time
     return client_model.state_dict(), client_losses, execution_time
 
+"""
 
 
+
+async def train_random_clients_with_classification_objective_delay_4(
+    client_model, train_loader, device, local_epochs, loss_fn,
+    gamma_0, alpha, delay_t, accumulation_steps, early_stopping_patience
+):
+    client_model = client_model.to(device)
+    patience_counter = 0
+    best_loss = float("inf")
+    client_losses = []
+
+    optimizer = torch.optim.Adam(client_model.parameters(), lr=gamma_0)
+
+    start_time = time.time()
+    for epoch in range(local_epochs):
+        client_model.train()
+        epoch_loss = 0
+
+        gamma_t = gamma_0 / (torch.sqrt(torch.tensor(epoch + 1.0)) * (1 + alpha * delay_t))
+        
+
+        for param_group in optimizer.param_groups:
+            param_group['lr'] = gamma_t.item()
+
+        for batch_idx, (inputs, targets) in enumerate(train_loader):
+            inputs, targets = inputs.to(device), targets.to(device)
+            optimizer.zero_grad()
+
+            # Standard GPU/CPU computation without AMP
+            outputs = client_model(inputs)
+            loss = loss_fn(outputs, targets)
+
+            loss.backward()
+            if (batch_idx + 1) % accumulation_steps == 0:
+                optimizer.step()
+
+            epoch_loss += loss.item()
+
+        avg_epoch_loss = epoch_loss / len(train_loader)
+        client_losses.append(avg_epoch_loss)
+
+        if avg_epoch_loss < best_loss:
+            best_loss = avg_epoch_loss
+            patience_counter = 0
+        else:
+            patience_counter += 1
+            if patience_counter >= early_stopping_patience:
+                break
+
+    execution_time = time.time() - start_time
+    return client_model.state_dict(), client_losses, execution_time
 
 
 

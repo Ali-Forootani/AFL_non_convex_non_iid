@@ -1,528 +1,0 @@
-Batch of images shape: torch.Size([64, 1, 28, 28])
-Batch of labels shape: torch.Size([64])
-Batch of images shape: torch.Size([64, 1, 28, 28])
-Batch of labels shape: torch.Size([64])
-CNNMnistModel(
-  (conv_layers): ModuleList(
-    (0): ConvLayer(
-      (conv): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-      (relu): ReLU()
-    )
-    (1-2): 2 x ConvLayer(
-      (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-      (relu): ReLU()
-    )
-  )
-  (pool): AdaptiveAvgPool2d(output_size=1)
-  (fc): Linear(in_features=32, out_features=10, bias=True)
-)
-Number of clients: 2
-First client's train loader size: 13
-Global test loader size: 313
-Federated Rounds:   0%|          | 0/100 [00:00<?, ?it/s]Federated Rounds:   1%|          | 1/100 [02:53<4:46:13, 173.47s/it]Federated Rounds:   2%|▏         | 2/100 [05:16<4:13:40, 155.31s/it]Federated Rounds:   3%|▎         | 3/100 [06:28<3:09:52, 117.45s/it]Federated Rounds:   4%|▍         | 4/100 [08:52<3:24:29, 127.80s/it]Federated Rounds:   5%|▌         | 5/100 [11:14<3:30:55, 133.22s/it]Federated Rounds:   6%|▌         | 6/100 [13:17<3:23:10, 129.69s/it]Federated Rounds:   7%|▋         | 7/100 [13:53<2:33:21, 98.94s/it] Federated Rounds:   8%|▊         | 8/100 [14:15<1:54:21, 74.58s/it]Federated Rounds:   9%|▉         | 9/100 [15:49<2:02:07, 80.53s/it]Federated Rounds:  10%|█         | 10/100 [16:33<1:43:48, 69.20s/it]Federated Rounds:  11%|█         | 11/100 [17:05<1:25:55, 57.93s/it]Federated Rounds:  12%|█▏        | 12/100 [17:28<1:09:28, 47.37s/it]Federated Rounds:  13%|█▎        | 13/100 [18:03<1:03:09, 43.56s/it]Federated Rounds:  14%|█▍        | 14/100 [18:30<55:00, 38.38s/it]  Federated Rounds:  15%|█▌        | 15/100 [19:21<1:00:08, 42.45s/it]Federated Rounds:  16%|█▌        | 16/100 [20:00<57:45, 41.26s/it]  Federated Rounds:  17%|█▋        | 17/100 [20:56<1:03:07, 45.63s/it]Federated Rounds:  18%|█▊        | 18/100 [21:16<51:56, 38.00s/it]  Federated Rounds:  19%|█▉        | 19/100 [21:42<46:13, 34.25s/it]Federated Rounds:  20%|██        | 20/100 [22:04<41:06, 30.83s/it]Federated Rounds:  21%|██        | 21/100 [22:32<39:22, 29.90s/it]Federated Rounds:  22%|██▏       | 22/100 [22:58<37:11, 28.61s/it]Federated Rounds:  23%|██▎       | 23/100 [23:25<36:10, 28.18s/it]Federated Rounds:  24%|██▍       | 24/100 [24:13<43:21, 34.23s/it]Federated Rounds:  25%|██▌       | 25/100 [24:44<41:19, 33.05s/it]Federated Rounds:  26%|██▌       | 26/100 [25:17<40:51, 33.13s/it]Federated Rounds:  27%|██▋       | 27/100 [25:35<34:51, 28.65s/it]Federated Rounds:  28%|██▊       | 28/100 [26:29<43:19, 36.10s/it]Federated Rounds:  29%|██▉       | 29/100 [26:45<35:34, 30.07s/it]Federated Rounds:  30%|███       | 30/100 [27:14<34:42, 29.74s/it]Federated Rounds:  31%|███       | 31/100 [27:47<35:28, 30.85s/it]Federated Rounds:  32%|███▏      | 32/100 [28:39<42:11, 37.22s/it]Federated Rounds:  33%|███▎      | 33/100 [30:26<1:05:00, 58.22s/it]Federated Rounds:  34%|███▍      | 34/100 [31:32<1:06:30, 60.46s/it]Federated Rounds:  35%|███▌      | 35/100 [32:09<57:45, 53.31s/it]  Federated Rounds:  36%|███▌      | 36/100 [32:52<53:42, 50.36s/it]Federated Rounds:  37%|███▋      | 37/100 [33:16<44:35, 42.46s/it]Federated Rounds:  38%|███▊      | 38/100 [34:03<45:08, 43.69s/it]Federated Rounds:  39%|███▉      | 39/100 [35:17<53:45, 52.88s/it]Federated Rounds:  40%|████      | 40/100 [36:27<57:53, 57.89s/it]Federated Rounds:  41%|████      | 41/100 [37:15<54:08, 55.07s/it]Federated Rounds:  42%|████▏     | 42/100 [37:45<46:02, 47.63s/it]Federated Rounds:  43%|████▎     | 43/100 [38:16<40:29, 42.62s/it]Federated Rounds:  44%|████▍     | 44/100 [39:02<40:35, 43.49s/it]Federated Rounds:  45%|████▌     | 45/100 [39:14<31:08, 33.98s/it]Federated Rounds:  46%|████▌     | 46/100 [39:35<27:16, 30.31s/it]Federated Rounds:  47%|████▋     | 47/100 [40:08<27:21, 30.98s/it]Federated Rounds:  48%|████▊     | 48/100 [40:37<26:18, 30.36s/it]Federated Rounds:  49%|████▉     | 49/100 [41:12<26:56, 31.70s/it]Federated Rounds:  50%|█████     | 50/100 [41:38<25:12, 30.26s/it]Federated Rounds:  51%|█████     | 51/100 [42:10<25:05, 30.73s/it]Federated Rounds:  52%|█████▏    | 52/100 [42:22<19:59, 24.99s/it]Federated Rounds:  53%|█████▎    | 53/100 [42:33<16:16, 20.78s/it]Federated Rounds:  54%|█████▍    | 54/100 [43:00<17:21, 22.64s/it]Federated Rounds:  55%|█████▌    | 55/100 [44:05<26:33, 35.41s/it]Federated Rounds:  56%|█████▌    | 56/100 [44:37<25:17, 34.49s/it]Federated Rounds:  57%|█████▋    | 57/100 [45:17<25:55, 36.17s/it]Federated Rounds:  58%|█████▊    | 58/100 [45:32<20:51, 29.81s/it]Federated Rounds:  59%|█████▉    | 59/100 [45:48<17:32, 25.67s/it]Federated Rounds:  60%|██████    | 60/100 [46:50<24:19, 36.49s/it]Federated Rounds:  61%|██████    | 61/100 [47:34<25:13, 38.81s/it]Federated Rounds:  62%|██████▏   | 62/100 [48:27<27:06, 42.81s/it]Federated Rounds:  63%|██████▎   | 63/100 [48:54<23:30, 38.13s/it]Federated Rounds:  64%|██████▍   | 64/100 [49:28<22:15, 37.10s/it]Federated Rounds:  65%|██████▌   | 65/100 [51:24<35:18, 60.53s/it]Federated Rounds:  66%|██████▌   | 66/100 [52:11<32:02, 56.55s/it]Federated Rounds:  67%|██████▋   | 67/100 [52:23<23:46, 43.24s/it]Federated Rounds:  68%|██████▊   | 68/100 [53:12<23:59, 44.98s/it]Federated Rounds:  69%|██████▉   | 69/100 [53:37<20:05, 38.88s/it]Federated Rounds:  70%|███████   | 70/100 [54:02<17:27, 34.91s/it]Federated Rounds:  71%|███████   | 71/100 [54:21<14:32, 30.08s/it]Federated Rounds:  72%|███████▏  | 72/100 [54:35<11:41, 25.07s/it]Federated Rounds:  73%|███████▎  | 73/100 [54:59<11:12, 24.91s/it]Federated Rounds:  74%|███████▍  | 74/100 [55:10<08:56, 20.62s/it]Federated Rounds:  75%|███████▌  | 75/100 [55:32<08:50, 21.20s/it]Federated Rounds:  76%|███████▌  | 76/100 [56:22<11:54, 29.77s/it]Federated Rounds:  77%|███████▋  | 77/100 [56:54<11:42, 30.54s/it]Federated Rounds:  78%|███████▊  | 78/100 [57:38<12:35, 34.33s/it]Federated Rounds:  79%|███████▉  | 79/100 [58:47<15:39, 44.73s/it]Federated Rounds:  80%|████████  | 80/100 [59:35<15:14, 45.71s/it]Federated Rounds:  81%|████████  | 81/100 [59:49<11:27, 36.18s/it]Federated Rounds:  82%|████████▏ | 82/100 [1:00:08<09:20, 31.14s/it]Federated Rounds:  83%|████████▎ | 83/100 [1:00:36<08:32, 30.16s/it]Federated Rounds:  84%|████████▍ | 84/100 [1:01:02<07:45, 29.11s/it]Federated Rounds:  85%|████████▌ | 85/100 [1:01:34<07:29, 29.99s/it]Federated Rounds:  86%|████████▌ | 86/100 [1:02:02<06:47, 29.10s/it]Federated Rounds:  87%|████████▋ | 87/100 [1:02:37<06:42, 30.94s/it]Federated Rounds:  88%|████████▊ | 88/100 [1:03:16<06:40, 33.36s/it]Federated Rounds:  89%|████████▉ | 89/100 [1:04:06<07:02, 38.39s/it]Federated Rounds:  90%|█████████ | 90/100 [1:04:28<05:34, 33.48s/it]Federated Rounds:  91%|█████████ | 91/100 [1:05:06<05:14, 34.96s/it]Federated Rounds:  92%|█████████▏| 92/100 [1:05:21<03:50, 28.83s/it]Federated Rounds:  93%|█████████▎| 93/100 [1:05:41<03:03, 26.26s/it]Federated Rounds:  94%|█████████▍| 94/100 [1:05:52<02:09, 21.58s/it]Federated Rounds:  95%|█████████▌| 95/100 [1:06:00<01:28, 17.73s/it]Federated Rounds:  96%|█████████▌| 96/100 [1:06:52<01:51, 27.93s/it]Federated Rounds:  97%|█████████▋| 97/100 [1:07:21<01:24, 28.32s/it]Federated Rounds:  98%|█████████▊| 98/100 [1:08:17<01:12, 36.46s/it]Federated Rounds:  99%|█████████▉| 99/100 [1:08:29<00:29, 29.26s/it]Federated Rounds: 100%|██████████| 100/100 [1:08:50<00:00, 26.80s/it]Federated Rounds: 100%|██████████| 100/100 [1:08:50<00:00, 41.31s/it]
-
-Starting federated learning round 1/100
-Selected clients: [1, 0]
-Round 1 - Maximum delay: 28.47s
-Server training loss after round 1: 29.6443
-
-Starting federated learning round 2/100
-Selected clients: [0, 1]
-Round 2 - Maximum delay: 1.51s
-Server training loss after round 2: 28.1838
-
-Starting federated learning round 3/100
-Selected clients: [0]
-Round 3 - Maximum delay: 0.00s
-Server training loss after round 3: 26.1206
-
-Starting federated learning round 4/100
-Selected clients: [1, 0]
-Round 4 - Maximum delay: 0.03s
-Server training loss after round 4: 24.1627
-
-Starting federated learning round 5/100
-Selected clients: [0, 1]
-Round 5 - Maximum delay: 0.06s
-Server training loss after round 5: 22.7251
-
-Starting federated learning round 6/100
-Selected clients: [0, 1]
-Round 6 - Maximum delay: 14.47s
-Server training loss after round 6: 21.9139
-
-Starting federated learning round 7/100
-Selected clients: [1]
-Round 7 - Maximum delay: 0.00s
-Server training loss after round 7: 21.8940
-
-Starting federated learning round 8/100
-Selected clients: [0]
-Round 8 - Maximum delay: 0.00s
-Server training loss after round 8: 21.0469
-
-Starting federated learning round 9/100
-Selected clients: [1, 0]
-Round 9 - Maximum delay: 35.29s
-Server training loss after round 9: 20.8818
-
-Starting federated learning round 10/100
-Selected clients: [1, 0]
-Round 10 - Maximum delay: 0.80s
-Server training loss after round 10: 20.5874
-
-Starting federated learning round 11/100
-Selected clients: [0, 1]
-Round 11 - Maximum delay: 8.92s
-Server training loss after round 11: 20.4859
-
-Starting federated learning round 12/100
-Selected clients: [1]
-Round 12 - Maximum delay: 0.00s
-Server training loss after round 12: 20.5410
-
-Starting federated learning round 13/100
-Selected clients: [0, 1]
-Round 13 - Maximum delay: 8.00s
-Server training loss after round 13: 20.3661
-
-Starting federated learning round 14/100
-Selected clients: [1, 0]
-Round 14 - Maximum delay: 5.12s
-Server training loss after round 14: 20.1349
-
-Starting federated learning round 15/100
-Selected clients: [1, 0]
-Round 15 - Maximum delay: 12.20s
-Server training loss after round 15: 20.0011
-
-Starting federated learning round 16/100
-Selected clients: [0]
-Round 16 - Maximum delay: 0.00s
-Server training loss after round 16: 19.6650
-
-Starting federated learning round 17/100
-Selected clients: [1, 0]
-Round 17 - Maximum delay: 9.83s
-Server training loss after round 17: 19.6471
-
-Starting federated learning round 18/100
-Selected clients: [0]
-Round 18 - Maximum delay: 0.00s
-Server training loss after round 18: 19.5318
-
-Starting federated learning round 19/100
-Selected clients: [1]
-Round 19 - Maximum delay: 0.00s
-Server training loss after round 19: 19.6613
-
-Starting federated learning round 20/100
-Selected clients: [1]
-Round 20 - Maximum delay: 0.00s
-Server training loss after round 20: 19.6325
-
-Starting federated learning round 21/100
-Selected clients: [0, 1]
-Round 21 - Maximum delay: 0.92s
-Server training loss after round 21: 19.2997
-
-Starting federated learning round 22/100
-Selected clients: [0]
-Round 22 - Maximum delay: 0.00s
-Server training loss after round 22: 18.7936
-
-Starting federated learning round 23/100
-Selected clients: [1]
-Round 23 - Maximum delay: 0.00s
-Server training loss after round 23: 19.2548
-
-Starting federated learning round 24/100
-Selected clients: [1, 0]
-Round 24 - Maximum delay: 20.96s
-Server training loss after round 24: 18.6734
-
-Starting federated learning round 25/100
-Selected clients: [1]
-Round 25 - Maximum delay: 0.00s
-Server training loss after round 25: 19.1638
-
-Starting federated learning round 26/100
-Selected clients: [0, 1]
-Round 26 - Maximum delay: 5.00s
-Server training loss after round 26: 18.7017
-
-Starting federated learning round 27/100
-Selected clients: [0]
-Round 27 - Maximum delay: 0.00s
-Server training loss after round 27: 18.3277
-
-Starting federated learning round 28/100
-Selected clients: [1, 0]
-Round 28 - Maximum delay: 18.40s
-Server training loss after round 28: 17.9619
-
-Starting federated learning round 29/100
-Selected clients: [0]
-Round 29 - Maximum delay: 0.00s
-Server training loss after round 29: 17.8846
-
-Starting federated learning round 30/100
-Selected clients: [1]
-Round 30 - Maximum delay: 0.00s
-Server training loss after round 30: 18.1543
-
-Starting federated learning round 31/100
-Selected clients: [0, 1]
-Round 31 - Maximum delay: 2.01s
-Server training loss after round 31: 18.0043
-
-Starting federated learning round 32/100
-Selected clients: [0, 1]
-Round 32 - Maximum delay: 1.81s
-Server training loss after round 32: 17.4563
-
-Starting federated learning round 33/100
-Selected clients: [0]
-Round 33 - Maximum delay: 0.00s
-Server training loss after round 33: 17.0039
-
-Starting federated learning round 34/100
-Selected clients: [1, 0]
-Round 34 - Maximum delay: 6.29s
-Server training loss after round 34: 17.0309
-
-Starting federated learning round 35/100
-Selected clients: [0, 1]
-Round 35 - Maximum delay: 13.96s
-Server training loss after round 35: 17.1018
-
-Starting federated learning round 36/100
-Selected clients: [1, 0]
-Round 36 - Maximum delay: 10.89s
-Server training loss after round 36: 16.8213
-
-Starting federated learning round 37/100
-Selected clients: [0]
-Round 37 - Maximum delay: 0.00s
-Server training loss after round 37: 16.7354
-
-Starting federated learning round 38/100
-Selected clients: [1, 0]
-Round 38 - Maximum delay: 13.60s
-Server training loss after round 38: 16.3611
-
-Starting federated learning round 39/100
-Selected clients: [0, 1]
-Round 39 - Maximum delay: 34.86s
-Server training loss after round 39: 16.5051
-
-Starting federated learning round 40/100
-Selected clients: [1, 0]
-Round 40 - Maximum delay: 12.05s
-Server training loss after round 40: 16.3616
-
-Starting federated learning round 41/100
-Selected clients: [0, 1]
-Round 41 - Maximum delay: 6.58s
-Server training loss after round 41: 16.0567
-
-Starting federated learning round 42/100
-Selected clients: [0, 1]
-Round 42 - Maximum delay: 7.32s
-Server training loss after round 42: 16.0384
-
-Starting federated learning round 43/100
-Selected clients: [0]
-Round 43 - Maximum delay: 0.00s
-Server training loss after round 43: 15.5609
-
-Starting federated learning round 44/100
-Selected clients: [1, 0]
-Round 44 - Maximum delay: 19.36s
-Server training loss after round 44: 15.5690
-
-Starting federated learning round 45/100
-Selected clients: [1]
-Round 45 - Maximum delay: 0.00s
-Server training loss after round 45: 15.6380
-
-Starting federated learning round 46/100
-Selected clients: [0]
-Round 46 - Maximum delay: 0.00s
-Server training loss after round 46: 15.4681
-
-Starting federated learning round 47/100
-Selected clients: [0]
-Round 47 - Maximum delay: 0.00s
-Server training loss after round 47: 15.3606
-
-Starting federated learning round 48/100
-Selected clients: [1]
-Round 48 - Maximum delay: 0.00s
-Server training loss after round 48: 15.4830
-
-Starting federated learning round 49/100
-Selected clients: [0, 1]
-Round 49 - Maximum delay: 16.20s
-Server training loss after round 49: 15.1609
-
-Starting federated learning round 50/100
-Selected clients: [0]
-Round 50 - Maximum delay: 0.00s
-Server training loss after round 50: 14.8401
-
-Starting federated learning round 51/100
-Selected clients: [1]
-Round 51 - Maximum delay: 0.00s
-Server training loss after round 51: 15.6687
-
-Starting federated learning round 52/100
-Selected clients: [1]
-Round 52 - Maximum delay: 0.00s
-Server training loss after round 52: 15.1524
-
-Starting federated learning round 53/100
-Selected clients: [0]
-Round 53 - Maximum delay: 0.00s
-Server training loss after round 53: 14.7078
-
-Starting federated learning round 54/100
-Selected clients: [0]
-Round 54 - Maximum delay: 0.00s
-Server training loss after round 54: 14.6909
-
-Starting federated learning round 55/100
-Selected clients: [1, 0]
-Round 55 - Maximum delay: 14.04s
-Server training loss after round 55: 14.4327
-
-Starting federated learning round 56/100
-Selected clients: [1, 0]
-Round 56 - Maximum delay: 17.79s
-Server training loss after round 56: 14.3511
-
-Starting federated learning round 57/100
-Selected clients: [1, 0]
-Round 57 - Maximum delay: 2.09s
-Server training loss after round 57: 14.5193
-
-Starting federated learning round 58/100
-Selected clients: [0]
-Round 58 - Maximum delay: 0.00s
-Server training loss after round 58: 14.3043
-
-Starting federated learning round 59/100
-Selected clients: [1]
-Round 59 - Maximum delay: 0.00s
-Server training loss after round 59: 14.5602
-
-Starting federated learning round 60/100
-Selected clients: [0, 1]
-Round 60 - Maximum delay: 0.35s
-Server training loss after round 60: 13.9975
-
-Starting federated learning round 61/100
-Selected clients: [1, 0]
-Round 61 - Maximum delay: 25.43s
-Server training loss after round 61: 13.9463
-
-Starting federated learning round 62/100
-Selected clients: [0, 1]
-Round 62 - Maximum delay: 2.52s
-Server training loss after round 62: 13.8454
-
-Starting federated learning round 63/100
-Selected clients: [0]
-Round 63 - Maximum delay: 0.00s
-Server training loss after round 63: 13.5106
-
-Starting federated learning round 64/100
-Selected clients: [1, 0]
-Round 64 - Maximum delay: 8.63s
-Server training loss after round 64: 14.0678
-
-Starting federated learning round 65/100
-Selected clients: [0, 1]
-Round 65 - Maximum delay: 20.86s
-Server training loss after round 65: 13.4730
-
-Starting federated learning round 66/100
-Selected clients: [1, 0]
-Round 66 - Maximum delay: 3.54s
-Server training loss after round 66: 13.7058
-
-Starting federated learning round 67/100
-Selected clients: [0]
-Round 67 - Maximum delay: 0.00s
-Server training loss after round 67: 13.0966
-
-Starting federated learning round 68/100
-Selected clients: [1, 0]
-Round 68 - Maximum delay: 11.18s
-Server training loss after round 68: 13.4302
-
-Starting federated learning round 69/100
-Selected clients: [1]
-Round 69 - Maximum delay: 0.00s
-Server training loss after round 69: 13.7593
-
-Starting federated learning round 70/100
-Selected clients: [0]
-Round 70 - Maximum delay: 0.00s
-Server training loss after round 70: 13.2038
-
-Starting federated learning round 71/100
-Selected clients: [1]
-Round 71 - Maximum delay: 0.00s
-Server training loss after round 71: 13.4655
-
-Starting federated learning round 72/100
-Selected clients: [0]
-Round 72 - Maximum delay: 0.00s
-Server training loss after round 72: 13.0527
-
-Starting federated learning round 73/100
-Selected clients: [0]
-Round 73 - Maximum delay: 0.00s
-Server training loss after round 73: 12.8408
-
-Starting federated learning round 74/100
-Selected clients: [1]
-Round 74 - Maximum delay: 0.00s
-Server training loss after round 74: 13.5748
-
-Starting federated learning round 75/100
-Selected clients: [1]
-Round 75 - Maximum delay: 0.00s
-Server training loss after round 75: 13.4409
-
-Starting federated learning round 76/100
-Selected clients: [0, 1]
-Round 76 - Maximum delay: 2.76s
-Server training loss after round 76: 12.6590
-
-Starting federated learning round 77/100
-Selected clients: [0]
-Round 77 - Maximum delay: 0.00s
-Server training loss after round 77: 13.0058
-
-Starting federated learning round 78/100
-Selected clients: [1, 0]
-Round 78 - Maximum delay: 3.51s
-Server training loss after round 78: 12.6102
-
-Starting federated learning round 79/100
-Selected clients: [1, 0]
-Round 79 - Maximum delay: 43.71s
-Server training loss after round 79: 12.5750
-
-Starting federated learning round 80/100
-Selected clients: [0, 1]
-Round 80 - Maximum delay: 4.18s
-Server training loss after round 80: 12.4843
-
-Starting federated learning round 81/100
-Selected clients: [1]
-Round 81 - Maximum delay: 0.00s
-Server training loss after round 81: 12.7708
-
-Starting federated learning round 82/100
-Selected clients: [0]
-Round 82 - Maximum delay: 0.00s
-Server training loss after round 82: 12.6464
-
-Starting federated learning round 83/100
-Selected clients: [0, 1]
-Round 83 - Maximum delay: 3.83s
-Server training loss after round 83: 12.5365
-
-Starting federated learning round 84/100
-Selected clients: [1]
-Round 84 - Maximum delay: 0.00s
-Server training loss after round 84: 12.5026
-
-Starting federated learning round 85/100
-Selected clients: [0]
-Round 85 - Maximum delay: 0.00s
-Server training loss after round 85: 12.1639
-
-Starting federated learning round 86/100
-Selected clients: [1]
-Round 86 - Maximum delay: 0.00s
-Server training loss after round 86: 12.8292
-
-Starting federated learning round 87/100
-Selected clients: [0, 1]
-Round 87 - Maximum delay: 20.85s
-Server training loss after round 87: 12.0953
-
-Starting federated learning round 88/100
-Selected clients: [1, 0]
-Round 88 - Maximum delay: 4.32s
-Server training loss after round 88: 12.2227
-
-Starting federated learning round 89/100
-Selected clients: [0, 1]
-Round 89 - Maximum delay: 1.65s
-Server training loss after round 89: 12.4601
-
-Starting federated learning round 90/100
-Selected clients: [0]
-Round 90 - Maximum delay: 0.00s
-Server training loss after round 90: 12.0756
-
-Starting federated learning round 91/100
-Selected clients: [1, 0]
-Round 91 - Maximum delay: 7.16s
-Server training loss after round 91: 12.0775
-
-Starting federated learning round 92/100
-Selected clients: [1]
-Round 92 - Maximum delay: 0.00s
-Server training loss after round 92: 12.1230
-
-Starting federated learning round 93/100
-Selected clients: [0]
-Round 93 - Maximum delay: 0.00s
-Server training loss after round 93: 11.6556
-
-Starting federated learning round 94/100
-Selected clients: [0]
-Round 94 - Maximum delay: 0.00s
-Server training loss after round 94: 11.7198
-
-Starting federated learning round 95/100
-Selected clients: [1]
-Round 95 - Maximum delay: 0.00s
-Server training loss after round 95: 11.9178
-
-Starting federated learning round 96/100
-Selected clients: [1, 0]
-Round 96 - Maximum delay: 6.58s
-Server training loss after round 96: 11.6587
-
-Starting federated learning round 97/100
-Selected clients: [0]
-Round 97 - Maximum delay: 0.00s
-Server training loss after round 97: 11.6260
-
-Starting federated learning round 98/100
-Selected clients: [1, 0]
-Round 98 - Maximum delay: 9.77s
-Server training loss after round 98: 11.5008
-
-Starting federated learning round 99/100
-Selected clients: [1]
-Round 99 - Maximum delay: 0.00s
-Server training loss after round 99: 12.2570
-
-Starting federated learning round 100/100
-Selected clients: [0]
-Round 100 - Maximum delay: 0.00s
-Server training loss after round 100: 11.4633
-
-Federated learning completed. Results saved in models/
-Server training losses over rounds: [2.2803274668180027, 2.1679846873650184, 2.0092807549696703, 1.8586713717533991, 1.7480820692502534, 1.6856826818906343, 1.6841566929450402, 1.6189945110907922, 1.6062912757580097, 1.5836458481275117, 1.5758370527854333, 1.580074429512024, 1.566622174703158, 1.5488407520147471, 1.5385477451177745, 1.5126914427830622, 1.5113150890056903, 1.5024471374658437, 1.5124109158149133, 1.5101929627932036, 1.4845908421736498, 1.4456633237692027, 1.4811396507116465, 1.4364170019443219, 1.474140423994798, 1.4385910492676954, 1.4098260494378896, 1.3816846700815053, 1.3757420778274536, 1.396488327246446, 1.384942916723398, 1.3427892648256743, 1.3079940814238329, 1.3100695793445294, 1.315525403389564, 1.2939469814300537, 1.287339591062986, 1.258545343692486, 1.2696205560977643, 1.258583398965689, 1.235129108795753, 1.2337242502432604, 1.1969903111457825, 1.1976163066350496, 1.2029249622271612, 1.1898555847314687, 1.1815817631207979, 1.190997220002688, 1.1662201101963336, 1.1415437322396498, 1.2052828211050768, 1.1655657704059894, 1.1313690405625563, 1.1300688890310435, 1.110204747089973, 1.1039283138055067, 1.1168730075542743, 1.100331457761618, 1.1200132645093477, 1.076733832175915, 1.0727958449950585, 1.0650295569346502, 1.0392750868430505, 1.0821404915589552, 1.0363854949290936, 1.0542922891103303, 1.0074300445043123, 1.0330920769618108, 1.0584058944995587, 1.0156775483718286, 1.035806275331057, 1.004050245651832, 0.9877564998773428, 1.0442148859684284, 1.033912901694958, 0.9737690228682297, 1.0004485295369074, 0.9700162869233352, 0.9673073566876925, 0.9603273868560791, 0.9823674101095933, 0.9728029416157649, 0.9643474496327914, 0.9617407000981845, 0.9356856483679551, 0.986863924906804, 0.9304046080662653, 0.9402053677118741, 0.9584679832825294, 0.9288930021799527, 0.929040097273313, 0.9325410861235398, 0.8965849968103262, 0.9015204356266902, 0.9167547455200782, 0.8968259921440711, 0.8943051741673396, 0.8846745811975919, 0.9428430245472834, 0.8817901152830857]
-Execution times by round: [[99.65438961982727, 71.18512725830078], [70.4807996749878, 71.99327850341797], [72.27868676185608], [71.79037594795227, 71.81912803649902], [71.41092109680176, 71.34696626663208], [54.15350127220154, 68.62128472328186], [35.570624589920044], [22.345360279083252], [64.41884994506836, 29.13229990005493], [21.48923969268799, 22.287846326828003], [20.604822635650635, 11.684578657150269], [23.157331943511963], [21.36231017112732, 13.36129879951477], [10.620189905166626, 15.742519855499268], [32.007479190826416, 19.808783054351807], [38.42093205451965], [32.77947640419006, 22.946596384048462], [20.18296718597412], [25.426977396011353], [22.78729510307312], [14.29625129699707, 13.381248712539673], [25.55530023574829], [27.1189706325531], [13.651736974716187, 34.61511850357056], [30.24211859703064], [14.117687940597534, 19.12025022506714], [18.155675888061523], [35.90912413597107, 17.50466752052307], [15.921903133392334], [28.918765783309937], [15.677836894989014, 17.687529802322388], [26.923688173294067, 25.11163568496704], [34.46262836456299], [35.93800687789917, 29.649879932403564], [25.267454624176025, 11.308782577514648], [27.137245178222656, 16.250728845596313], [23.971138954162598], [30.038484573364258, 16.442200422286987], [54.5667245388031, 19.704586029052734], [40.77577757835388, 28.73064374923706], [20.923832893371582, 27.50087285041809], [11.439433336257935, 18.763256549835205], [30.84154176712036], [13.05023741722107, 32.40537452697754], [11.719284296035767], [21.66092348098755], [32.47642111778259], [28.841815948486328], [9.291361331939697, 25.489179134368896], [26.821309566497803], [31.753705501556396], [11.533608198165894], [10.902005910873413], [22.43215560913086], [39.592196226119995, 25.55374050140381], [25.032880306243896, 7.2405173778533936], [18.979530572891235, 21.073441743850708], [14.879961252212524], [15.977579832077026], [30.662026166915894, 31.00990128517151], [9.357993841171265, 34.79184055328369], [27.29670214653015, 24.78144598007202], [27.158294439315796], [21.624935388565063, 12.994202852249146], [43.78265190124512, 22.92079210281372], [25.377182960510254, 21.83374309539795], [12.117323160171509], [30.079218864440918, 18.90096139907837], [24.5947208404541], [25.577545166015625], [18.75117325782776], [13.30147647857666], [24.498160123825073], [10.534401178359985], [22.49862265586853], [26.235571146011353, 23.47491765022278], [32.26749396324158], [19.80122184753418, 23.31434202194214], [56.31241846084595, 12.605060338973999], [26.060323476791382, 21.880009412765503], [13.89308762550354], [19.306116819381714], [11.987689971923828, 15.817179918289185], [26.586086750030518], [31.98252010345459], [12.274759531021118], [27.99717903137207, 7.149993658065796], [17.328628063201904, 21.64380669593811], [25.85892939567566, 24.210455656051636], [21.959052562713623], [22.747470140457153, 15.588672399520874], [14.459848880767822], [20.197746515274048], [10.60400915145874], [8.67207407951355], [29.123145818710327, 22.543923139572144], [21.161701440811157], [32.56874704360962, 22.793886423110962], [12.393390655517578], [21.00658082962036]]
-Selected clients by round: [[1, 0], [0, 1], [0], [1, 0], [0, 1], [0, 1], [1], [0], [1, 0], [1, 0], [0, 1], [1], [0, 1], [1, 0], [1, 0], [0], [1, 0], [0], [1], [1], [0, 1], [0], [1], [1, 0], [1], [0, 1], [0], [1, 0], [0], [1], [0, 1], [0, 1], [0], [1, 0], [0, 1], [1, 0], [0], [1, 0], [0, 1], [1, 0], [0, 1], [0, 1], [0], [1, 0], [1], [0], [0], [1], [0, 1], [0], [1], [1], [0], [0], [1, 0], [1, 0], [1, 0], [0], [1], [0, 1], [1, 0], [0, 1], [0], [1, 0], [0, 1], [1, 0], [0], [1, 0], [1], [0], [1], [0], [0], [1], [1], [0, 1], [0], [1, 0], [1, 0], [0, 1], [1], [0], [0, 1], [1], [0], [1], [0, 1], [1, 0], [0, 1], [0], [1, 0], [1], [0], [0], [1], [1, 0], [0], [1, 0], [1], [0]]
-Final server model saved to models//server_model_final.pth
