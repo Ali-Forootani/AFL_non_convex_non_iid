@@ -1,4 +1,0 @@
-Federated Rounds:   0%|          | 0/20 [00:00<?, ?it/s]/gpfs1/data/bio-eng-llm/AFL_non_convex/src/mnist_trainer.py:359: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
-  scaler = amp.GradScaler()
-/gpfs1/data/bio-eng-llm/AFL_non_convex/src/mnist_trainer.py:379: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
-  with amp.autocast():
