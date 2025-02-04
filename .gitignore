@@ -1,7 +1,7 @@
 .DS_Store
 
-src/models/
-src/data/
+/src/models/
+/src/data/
 
 ./data/
 ./logs/
