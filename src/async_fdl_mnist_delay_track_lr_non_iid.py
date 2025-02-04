@@ -281,7 +281,9 @@ async def main():
     global server_model
 
     # Create results directory based on the settings
-    results_dir = create_directory(num_clients=num_clients, num_rounds= num_rounds, local_epochs= local_epochs, max_clients_per_round=num_clients_per_round)
+    results_dir = create_directory(num_clients= num_clients, num_rounds= num_rounds,
+                                   local_epochs= local_epochs,
+                                   max_clients_per_round=num_clients_per_round)
 
     server_model, training_losses, server_losses, selected_clients_per_round, execution_times_by_round = await federated_learning_with_mnist_cnn(
         clients_models=clients_models,
@@ -295,8 +297,7 @@ async def main():
         alpha=0.01,
         delay_t=2,
         accumulation_steps=1,
-        early_stopping_patience=10
-    )
+        early_stopping_patience=10)
 
     # Save and plot losses for each client
     for i, client_losses in enumerate(training_losses):
