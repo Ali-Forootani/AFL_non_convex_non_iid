@@ -51,7 +51,8 @@ def load_and_plot_saved_losses(results_dir):
 
     plt.xlabel("Epochs")
     plt.ylabel("Loss")
-    plt.yscale("log")
+    #plt.yscale("log")
+    plt.xscale("log")
     plt.title("Client Training Losses")
     plt.legend()
     plt.grid(True)
@@ -61,18 +62,26 @@ def load_and_plot_saved_losses(results_dir):
     if os.path.exists(server_losses_file):
         server_losses = np.load(server_losses_file)
         plt.figure(figsize=(10, 6))
-        plt.plot(server_losses, label="Server Loss")
-        plt.xlabel("Rounds")
-        plt.ylabel("Loss")
-        plt.yscale("log")
-        plt.title("Server Loss Across Rounds")
+        plt.plot(server_losses, linewidth= 1, label="Asynchronous Federated Learning", marker='o' )
+        plt.xlabel("Rounds", fontsize=18)
+        plt.ylabel("Loss", fontsize=18)
+        #plt.yscale("log")
+        plt.xscale("log")
+        plt.title("Server Loss Across Rounds in CIFAR dataset with 50% clients participation", fontsize=18)
         plt.legend()
+        plt.legend(fontsize=16)
+        plt.xticks(fontsize=16)  # Set x-tick font size
+        plt.yticks(fontsize=16)  # Set y-tick font size
         plt.grid(True)
+        
+
+        plt.savefig(root_dir + "/results/" +"asynch_nonconvex_mnist_server_losses_clients_4.png", dpi=300, bbox_inches='tight')  # High-quality PNG
+        plt.savefig(root_dir + "/results/"+ "asynch_nonconvex_mnist_server_losses_clients_4.pdf", bbox_inches='tight')  # PDF format
         plt.show()
     else:
         print("Server losses file not found.")
 
 
 # Example usage
-results_dir = root_dir + "/results/clients_10_rounds_200_epochs_10_clients_per_round_5_20250106_125808"  # Replace with your actual results directory
+results_dir = root_dir + "/results/mnist_clients_10_rounds_1000_epochs_10_clients_per_round_4_20250218_103407"  # Replace with your actual results directory
 load_and_plot_saved_losses(results_dir)

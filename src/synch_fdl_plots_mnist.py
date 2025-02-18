@@ -9,13 +9,7 @@ Created on Sun Jan  5 15:29:21 2025
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-
-
-
-import numpy as np
 import sys
-import os
-
 
 def setting_directory(depth):
     current_dir = os.path.abspath(os.getcwd())
@@ -25,33 +19,27 @@ def setting_directory(depth):
         sys.path.append(os.path.dirname(root_dir))
     return root_dir
 
-
 root_dir = setting_directory(0)
 
-
-
-
-
-
 def load_and_plot_saved_losses(results_dir):
-    
     """
     Load saved NumPy arrays and plot the training losses.
     """
     
-    client_losses_files = [f for f in os.listdir(results_dir) if f.startswith("client_") and f.endswith("_losses.npy")]
-    server_losses_file = os.path.join(results_dir, "server_losses.npy")
+    client_losses_files = [f for f in os.listdir(results_dir) if f.startswith("synch_client_") and f.endswith("_losses.npy")]
+    server_losses_file = os.path.join(results_dir, "synch_server_losses.npy")
 
     # Load and plot client losses
     plt.figure(figsize=(10, 6))
-    for client_file in client_losses_files:
-        client_index = int(client_file.split("_")[1])
+    for client_file in sorted(client_losses_files):
+        client_index = int(client_file.split("_")[2])  # Extracting client index
         client_losses = np.load(os.path.join(results_dir, client_file))
         plt.plot(client_losses, label=f"Client {client_index}")
 
     plt.xlabel("Epochs")
     plt.ylabel("Loss")
-    plt.yscale("log")
+    #plt.yscale("log")
+    plt.xscale("log")
     plt.title("Client Training Losses")
     plt.legend()
     plt.grid(True)
@@ -63,8 +51,9 @@ def load_and_plot_saved_losses(results_dir):
         plt.figure(figsize=(10, 6))
         plt.plot(server_losses, label="Server Loss")
         plt.xlabel("Rounds")
+        plt.xscale("log")
         plt.ylabel("Loss")
-        plt.yscale("log")
+        #plt.yscale("log")
         plt.title("Server Loss Across Rounds")
         plt.legend()
         plt.grid(True)
@@ -72,7 +61,8 @@ def load_and_plot_saved_losses(results_dir):
     else:
         print("Server losses file not found.")
 
+# Define the results directory
+results_dir = root_dir + "/results/synch_clients_10_rounds_1000_epochs_10_clients_per_round_5_20250216_132617"
 
-# Example usage
-results_dir = root_dir + "/results/clients_10_rounds_200_epochs_10_clients_per_round_5_20250106_125808"  # Replace with your actual results directory
+# Load and plot losses
 load_and_plot_saved_losses(results_dir)

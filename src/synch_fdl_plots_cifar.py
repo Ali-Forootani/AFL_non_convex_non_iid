@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Tue Feb 18 15:23:20 2025
+
+@author: forootan
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Sun Jan  5 15:29:21 2025
 
 @author: forootan
@@ -31,8 +39,6 @@ root_dir = setting_directory(0)
 
 
 
-
-
 def load_and_plot_saved_losses(results_dir):
     
     """
@@ -40,7 +46,7 @@ def load_and_plot_saved_losses(results_dir):
     """
     
     client_losses_files = [f for f in os.listdir(results_dir) if f.startswith("client_") and f.endswith("_losses.npy")]
-    server_losses_file = os.path.join(results_dir, "server_losses.npy")
+    server_losses_file = os.path.join(results_dir, "synch_cifar_server_losses.npy")
 
     # Load and plot client losses
     plt.figure(figsize=(10, 6))
@@ -51,7 +57,8 @@ def load_and_plot_saved_losses(results_dir):
 
     plt.xlabel("Epochs")
     plt.ylabel("Loss")
-    plt.yscale("log")
+    #plt.yscale("log")
+    #plt.xscale("log")
     plt.title("Client Training Losses")
     plt.legend()
     plt.grid(True)
@@ -63,8 +70,9 @@ def load_and_plot_saved_losses(results_dir):
         plt.figure(figsize=(10, 6))
         plt.plot(server_losses, label="Server Loss")
         plt.xlabel("Rounds")
+        plt.xscale("log")
         plt.ylabel("Loss")
-        plt.yscale("log")
+        #plt.yscale("log")
         plt.title("Server Loss Across Rounds")
         plt.legend()
         plt.grid(True)
@@ -74,5 +82,5 @@ def load_and_plot_saved_losses(results_dir):
 
 
 # Example usage
-results_dir = root_dir + "/results/clients_10_rounds_200_epochs_10_clients_per_round_5_20250106_125808"  # Replace with your actual results directory
+results_dir = root_dir + "/results/synch_cifar_20250216_145508"  # Replace with your actual results directory
 load_and_plot_saved_losses(results_dir)
