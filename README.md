@@ -236,7 +236,7 @@ Once training is complete, results will be saved in the `results/` directory.
 ### Example Training Loss Plot (MNIST & CIFAR-10):
 ![Server Training Loss](src/results/pictures/nonconvex_cifar_server_losses_comparison.png)
 
-![Server Training Loss](src/results/pictures/nonconvex_mnist_server_losses_comparison.png)
+![Server Training Loss](src/results/pictures/nonconvex_mnist_server_losses_clients_participation.png)
 
 ## Extending the Code
 
