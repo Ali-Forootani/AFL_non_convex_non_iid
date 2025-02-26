@@ -234,10 +234,10 @@ Once training is complete, results will be saved in the `results/` directory.
 - **Execution Times:** Logged in `execution_times.csv`.
 
 ### Example Training Loss Plot (MNIST & CIFAR-10):
-![Server Training Loss](results/server_training_loss.png)
+![Server Training Loss](src/results/server_training_loss.png)
 
 ### Example Client Selection Plot:
-![Selected Clients Per Round](results/selected_clients_plot.png)
+![Selected Clients Per Round](src/results/selected_clients_plot.png)
 
 ## Extending the Code
 
