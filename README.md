@@ -262,14 +262,9 @@ Since the code is **general**, it can be extended to **other datasets and models
 If you use this repository in your research, please cite it:
 
 ```
-@misc{yourgithubrepo,
-  author = {Forootan},
-  title = {Asynchronous Federated Learning with PyTorch (MNIST & CIFAR-10)},
-  year = {2025},
-  url = {https://github.com/yourusername/async-federated-learning}
-}
+To be provided soon
 ```
 
----
+## Contact
 
-This version clearly highlights that the code is **general** and **configurable** for different datasets, clients, and hyperparameters. Let me know if you need any more refinements! 🚀
+Please feel free to contact us: `aliforootani@ieee.org`; `aliforootani@gmail.com`; `forootani@mpi-magdeburg.mpg.de`; `ali.forootani@ufz.de`
