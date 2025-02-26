@@ -252,10 +252,8 @@ Since the code is **general**, it can be extended to **other datasets and models
 
 ## Future Improvements
 
-- Support for **heterogeneous models** across clients.
-- Implement **secure aggregation** for privacy.
 - Expand to **other datasets** beyond MNIST & CIFAR-10.
-- Optimize **communication efficiency** for real-world deployment.
+
 
 ## Citation
 
@@ -267,4 +265,6 @@ To be provided soon
 
 ## Contact
 
+```
 Please feel free to contact us: `aliforootani@ieee.org`; `aliforootani@gmail.com`; `forootani@mpi-magdeburg.mpg.de`; `ali.forootani@ufz.de`
+```
