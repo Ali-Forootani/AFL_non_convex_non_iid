@@ -104,10 +104,6 @@ Contributions are welcome! Follow these steps to contribute:
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
 
 
 
@@ -268,3 +264,8 @@ To be provided soon
 ```
 Please feel free to contact us: `aliforootani@ieee.org`; `aliforootani@gmail.com`; `forootani@mpi-magdeburg.mpg.de`; `ali.forootani@ufz.de`
 ```
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
