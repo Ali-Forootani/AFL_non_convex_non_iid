@@ -18,12 +18,12 @@ def compare_server_losses(results_dir_async, label_async, file_async, results_di
 
     if server_losses_async is not None and server_losses_sync is not None:
         plt.figure(figsize=(10, 6))
-        plt.plot(server_losses_async, label="Asynchronous FL Server Loss", linestyle='-', marker='o')
-        plt.plot(server_losses_sync, label="Synchronous FL Server Loss", linestyle='--', marker='s')
+        plt.plot(server_losses_async[:200], label="Asynchronous FL Server Loss", linestyle='-', marker='o')
+        plt.plot(server_losses_sync[:200], label="Synchronous FL Server Loss", linestyle='--', marker='s')
         plt.xlabel("Rounds",  fontsize=18)
         plt.xscale("log")
         plt.ylabel("Loss", fontsize=18)
-        plt.title("Comparison of Server Losses in CIFAR dataset (Asynchronous vs. Synchronous)",  fontsize=18)
+        #plt.title("Comparison of Server Losses in CIFAR dataset (Asynchronous vs. Synchronous)",  fontsize=18)
         plt.legend()
         plt.legend(fontsize=16)
         plt.xticks(fontsize=16)  # Set x-tick font size

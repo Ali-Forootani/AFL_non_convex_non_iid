@@ -40,7 +40,7 @@ def load_server_losses(results_dir, server_losses_filename):
         return None
 
 # Define results directories
-results_dir_1 = root_dir + "/results/clients_10_rounds_1000_epochs_10_clients_per_round_5_20250205_072223"
+results_dir_1 = root_dir + "/results/mnist_clients_10_rounds_1000_epochs_10_clients_per_round_5_20250205_072223"
 results_dir_2 = root_dir + "/results/synch_clients_10_rounds_1000_epochs_10_clients_per_round_5_20250216_132617"
 
 # Load server losses
@@ -59,7 +59,7 @@ if server_losses_2 is not None:
 plt.xlabel("Rounds", fontsize=18,)
 plt.xscale("log")
 plt.ylabel("Loss", fontsize=18,)
-plt.title("Comparison of Server Losses in MNIST dataset (Asynchronous vs. Synchronous)",  fontsize=18)
+#plt.title("Comparison of Server Losses in MNIST dataset (Asynchronous vs. Synchronous)",  fontsize=18)
 plt.legend(fontsize=16)
 plt.xticks(fontsize=16)  # Set x-tick font size
 plt.yticks(fontsize=16)  # Set y-tick font size

@@ -69,7 +69,7 @@ class ResNet(nn.Module):
 
 # Helper function to create result directories
 def create_directory(num_clients, num_rounds, local_epochs, max_clients_per_round, base_dir="results"):
-    dir_name = f"{base_dir}/clients_{num_clients}_rounds_{num_rounds}_epochs_{local_epochs}_clients_per_round_{max_clients_per_round}_{time.strftime('%Y%m%d_%H%M%S')}"
+    dir_name = f"{base_dir}/cifar_clients_{num_clients}_rounds_{num_rounds}_epochs_{local_epochs}_clients_per_round_{max_clients_per_round}_{time.strftime('%Y%m%d_%H%M%S')}"
     os.makedirs(dir_name, exist_ok=True)
     return dir_name
 
@@ -247,7 +247,7 @@ num_clients = 10
 alpha = 0.5
 num_rounds = 200
 local_epochs = 10
-num_clients_per_round = 5
+num_clients_per_round = 6
 
 client_data_indices = partition_non_iid(train_dataset, num_clients, alpha=alpha)
 batch_size = 64
