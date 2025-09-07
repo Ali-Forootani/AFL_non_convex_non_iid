@@ -1,0 +1,16 @@
+{
+  "method": "async_fedprox",
+  "dataset": "fashion_mnist",
+  "num_clients": 10,
+  "num_clients_per_round": 5,
+  "num_rounds": 1000,
+  "local_epochs": 10,
+  "non_iid_alpha": 0.5,
+  "delay_t": 2,
+  "gamma_0": 0.001,
+  "alpha_staleness": 0.01,
+  "mu_prox": 0.01,
+  "accuracy_final": 0.8937,
+  "best_accuracy": 0.8956,
+  "total_runtime_sec": 47335.63665986061
+}

@@ -1,0 +1,13 @@
+{
+  "dataset": "fashion_mnist",
+  "num_clients": 10,
+  "buffer_size_K": 8,
+  "max_aggregations": 1000,
+  "local_epochs": 5,
+  "non_iid_alpha": 0.5,
+  "staleness_beta": 0.05,
+  "max_delay_seconds": 2.0,
+  "best_accuracy": 0.4568,
+  "final_accuracy": 0.1,
+  "total_runtime_sec": 49742.923698186874
+}

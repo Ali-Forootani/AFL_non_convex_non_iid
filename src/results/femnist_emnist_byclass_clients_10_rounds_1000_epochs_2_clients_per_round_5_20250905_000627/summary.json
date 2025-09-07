@@ -1,0 +1,11 @@
+{
+  "dataset": "femnist_emnist_byclass",
+  "num_clients": 10,
+  "rounds": 1000,
+  "bytes_per_model": 14136,
+  "total_comm_bytes": 141360000,
+  "final_test_accuracy": 0.03173061217472039,
+  "best_test_accuracy": 0.07742234983623188,
+  "avg_round_wall_time_sec": 9.798207750797271,
+  "eval_every": 10
+}
